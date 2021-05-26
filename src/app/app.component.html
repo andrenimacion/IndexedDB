@@ -1,0 +1,77 @@
+<strong style="font-size: 18pt;">
+TESTING IndexedDB...
+</strong>
+
+<hr>
+<br>
+<!-- 
+  Estado: Iniciando -->
+  
+  <input type="text" placeholder="Nombre de Base de Datos" [(ngModel)]="_nameBD">
+  <button class="btn btn-info" type="button" (click)="this.createDB(_nameBD, dataTests, 'conteCBD')" > Crear BD </button>
+  
+  <!-- <button class="btn btn-success" (click)="readDB(_nameBD)">
+    Obtener <span title="Base de datos" style="font-weight: bold;">BD</span> local a trabajar
+  </button> -->
+
+  <ol class="list-group list-group-numbered">
+    <li class="list-group-item"></li>
+  </ol>
+
+  <span class="note" id="conteCBD"></span>
+<hr>
+  Nombre:
+  <input type="text" placeholder="Nombre Insertar" [(ngModel)]="_name">
+<br>
+
+  Código:
+  <input type="text" placeholder="Código Insertar" [(ngModel)]="_codi">
+<br>
+  
+  Año:
+  <input type="text" placeholder="Año Insertar"    [(ngModel)]="_anio">
+<br>
+<button class="btn btn-secondary" type="button" (click)="agregarData(_nameBD, _name, _codi, _anio)" > Insertar Data BD </button>
+<hr>
+<!-- <input type="text" placeholder="Info Actualizar" > -->
+<button class="btn btn-secondary" type="button"> Actualizar BD </button>
+<hr>
+
+<table  class="table table-warning table-bordered ">
+  <thead class=" table-dark">
+    <tr>
+    <th>
+      Nombre
+    </th>
+    <th>
+      Codigo
+    </th>
+    <th>
+      Año
+    </th>
+    <th>
+      Acción
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of arrCursor">
+      <td>
+        {{a.Nombre}}     
+      </td>      
+      <td>   
+        {{a.Codigo}}
+      </td>      
+      <td>        
+        {{a.Anio}}
+      </td>      
+      <td>
+        <button type="button" class="btn btn-warning" (click)="elData(_nameBD)" > Eliminar Data </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<button type="button" class="btn btn-danger" (click)="elBDData(_nameBD)" > Eliminar BD </button>
